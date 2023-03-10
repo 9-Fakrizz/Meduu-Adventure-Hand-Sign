@@ -22,13 +22,21 @@ int main(int argc,char *argv[]){
 
     SDL_RenderPresent(renderer);
 
-    SDL_Event windowEvent;
+    SDL_Event event;
 
     while(true){
-        if(SDL_PollEvent( &windowEvent)){
-            if(SDL_QUIT == windowEvent.type){
+        if(SDL_PollEvent( &event)){
+            if(SDL_QUIT == event.type){
                 break;
             }
+
+            if(SDL_KEYDOWN == event.type){
+                cout<<"Key is down"<<endl;
+            }
+            else if (SDL_KEYUP == event.type){
+                cout<<"Key is up"<<endl;
+            }
+            
         }
     }
     
