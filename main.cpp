@@ -31,10 +31,32 @@ int main(int argc,char *argv[]){
             }
 
             if(SDL_KEYDOWN == event.type){
-                cout<<"Key is down"<<endl;
+                if(SDLK_a == event.key.keysym.sym){
+                    cout<<"A is down - move left"<<endl;
+                }
+                else if(SDLK_s == event.key.keysym.sym){
+                    cout<<"S is down - move down"<<endl;
+                }
+                else if(SDLK_d == event.key.keysym.sym){
+                    cout<<"D is down - move right"<<endl;
+                }
+                else if(SDLK_w == event.key.keysym.sym){
+                    cout<<"W is down - move up"<<endl;
+                }
             }
             else if (SDL_KEYUP == event.type){
-                cout<<"Key is up"<<endl;
+                if(SDLK_a == event.key.keysym.sym){
+                    cout<<"A is up - stop moving left"<<endl;
+                }
+                else if(SDLK_s == event.key.keysym.sym){
+                    cout<<"S is up - stop moving down"<<endl;
+                }
+                else if(SDLK_d == event.key.keysym.sym){
+                    cout<<"D is up - stop moving right"<<endl;
+                }
+                else if(SDLK_w == event.key.keysym.sym){
+                    cout<<"W is up - stop moving up"<<endl;
+                }
             }
             
         }
