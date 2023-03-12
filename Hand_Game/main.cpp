@@ -14,6 +14,8 @@ int main(int argc, char* argv[]) {
 
 	RenderWindow window("Meduu Adventure", 1600, 1024);
 
+	SDL_Texture* forest_background = window.loadTexture("res/Forest_Battle_Scene.png");
+
 	bool gameRunning = true;
 
 	SDL_Event event;
@@ -24,6 +26,9 @@ int main(int argc, char* argv[]) {
 				gameRunning = false;
 			}
 		}
+		window.clear();
+		window.render(forest_background);
+		window.display();
 	}
 
 	window.cleanUp();
