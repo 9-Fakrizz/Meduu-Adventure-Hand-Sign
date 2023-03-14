@@ -7,9 +7,6 @@
 using namespace cv;
 using namespace std;
 
-
-///////////////  Images  //////////////////////
-
 void main() {
 
 	VideoCapture video(0);
@@ -27,9 +24,9 @@ void main() {
 		cout << faces.size() << endl;
 
 		for (int i = 0; i < faces.size(); i++) {
-			rectangle(img, faces[i].tl(), faces[i].br(), Scalar(50, 50, 255), 3);
-			rectangle(img, Point(0, 0), Point(250, 70), Scalar(50, 50, 255), FILLED);
-			putText(img, to_string(faces.size()) + " Face Found", Point(10, 40), FONT_HERSHEY_DUPLEX, 1, Scalar(255, 255, 255), 1);
+			rectangle(img, faces[i].tl(), faces[i].br(), Scalar(50, 50, 255), 3); //retangle around faces
+			rectangle(img, Point(0, 0), Point(250, 70), Scalar(50, 50, 255), FILLED); //retangle about display behind text
+			putText(img, to_string(faces.size()) + " Face Found", Point(10, 40), FONT_HERSHEY_DUPLEX, 1, Scalar(255, 255, 255), 1); // text count face.size()
 		}
 
 
