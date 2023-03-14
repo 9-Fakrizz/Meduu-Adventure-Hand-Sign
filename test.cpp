@@ -38,25 +38,25 @@ int main(int argc,char *argv[]){
 
             if(SDL_MOUSEBUTTONDOWN == event.type){
                 if(SDL_BUTTON_LEFT == event.button.button){
-                    cout<<"Left click"<<endl;
+                    cout<<"Left click!"<<endl;
                 }
                 if(SDL_BUTTON_RIGHT == event.button.button){
-                    cout<<"Right click"<<endl;
+                    cout<<"Right click!"<<endl;
                 }
                 if(SDL_BUTTON_MIDDLE == event.button.button){
-                    cout<<"Middle click"<<endl;
+                    cout<<"Middle click!"<<endl;
                 }
             }
 
             if(SDL_MOUSEBUTTONUP == event.type){
                 if(SDL_BUTTON_LEFT == event.button.button){
-                    cout<<"Left unclick"<<endl;
+                    cout<<"Left unclick!"<<endl;
                 }
                 if(SDL_BUTTON_RIGHT == event.button.button){
-                    cout<<"Right unclick"<<endl;
+                    cout<<"Right unclick!"<<endl;
                 }
                 if(SDL_BUTTON_MIDDLE == event.button.button){
-                    cout<<"Middle unclick"<<endl;
+                    cout<<"Middle unclick!"<<endl;
                 }
             }
 
