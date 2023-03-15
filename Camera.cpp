@@ -34,7 +34,7 @@ void main() {
 
 		
 		
-		int key = waitKey(1);
+		int key = waitKey(1); //
 		if (key == 'b') {
 			capture(img);
 			cout << "Image captured" << endl;
