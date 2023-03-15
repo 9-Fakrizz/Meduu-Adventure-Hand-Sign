@@ -4,15 +4,39 @@
 #include <opencv2/objdetect.hpp>
 #include <iostream>
 #include <conio.h>
+#include <unordered_map>
 
 using namespace cv;
 using namespace std;
 
+int most_frequent(vector<int> arr) {
+	unordered_map<int, int> freq;
+	int max_count = 0, max_num = 0;
+
+	for (int i = 0; i < arr.size(); i++) {
+		int num = arr[i];
+		if (freq.count(num) == 0) {
+			freq[num] = 1;
+		}
+		else {
+			freq[num]++;
+		}
+
+		if (freq[num] > max_count) {
+			max_count = freq[num];
+			max_num = num;
+		}
+	}
+
+	return max_num;
+}
+
 void main() {
 
-	int result;
-	int i = 0 ;
 
+	int i = 0 ;
+	int freq;
+	vector<int> result;
 	
 	VideoCapture video(0);
 	CascadeClassifier facedetect;
@@ -27,7 +51,7 @@ void main() {
 		facedetect.detectMultiScale(img, faces, 1.3, 5);
 
 		
-		
+		freq = most_frequent(result);
 		int key = waitKey(1);
 		if (key == 'b') {
 			i = 1;
@@ -40,11 +64,17 @@ void main() {
 		}
 		else if (i >= 40) {
 			putText(img, "CHEESE", Point(125, 300), FONT_HERSHEY_DUPLEX, 3, Scalar(255, 255, 255), 1);
+			result.push_back(faces.size());
 			i++;
 		}
 
+		if (result.size() > 15) result.clear();
+		
 
 		cout << faces.size() << endl;
+
+		rectangle(img, Point(250, 0), Point(500, 70), Scalar(50, 225, 255), FILLED);
+		putText(img, "Result :  " + to_string(freq), Point(280, 40), FONT_HERSHEY_DUPLEX, 1, Scalar(0, 0, 0), 1);
 
 		rectangle(img, Point(0, 0), Point(250, 70), Scalar(50, 50, 255), FILLED); //retangle about display behind text
 		putText(img, to_string(faces.size()) + " Face Found", Point(10, 40), FONT_HERSHEY_DUPLEX, 1, Scalar(255, 255, 255), 1); // text count face.size()
