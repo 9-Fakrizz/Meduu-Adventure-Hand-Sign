@@ -1,7 +1,8 @@
-#include<iostream>
-#include<SDL.h>
-#include<SDL_image.h>
-#include"RenderWindow.h"
+#include <iostream>
+#include <SDL.h>
+#include <SDL_image.h>
+#include "RenderWindow.h"
+#include "Entity.h"
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -14,8 +15,12 @@ int main(int argc, char* argv[]) {
 
 	RenderWindow window("Meduu Adventure", 1600, 1024);
 
-	SDL_Texture* forest_background = window.loadTexture("res/Forest_Battle_Scene.png");
-
+	SDL_Texture* forest_background = window.loadTexture("res/Forest_Scene.png");
+	SDL_Texture* slime = window.loadTexture("res/Blue_Slime.png");
+	SDL_Texture* player_pic = window.loadTexture("res/Player.png");
+	Entity scene01(0,0, forest_background);
+	Entity blue_slime(250, 75,slime );
+	Entity player(0,0,player_pic);
 	bool gameRunning = true;
 
 	SDL_Event event;
@@ -27,7 +32,9 @@ int main(int argc, char* argv[]) {
 			}
 		}
 		window.clear();
-		window.render(forest_background);
+		window.render(scene01);
+		window.render(blue_slime);
+		window.render(player);
 		window.display();
 	}
 
