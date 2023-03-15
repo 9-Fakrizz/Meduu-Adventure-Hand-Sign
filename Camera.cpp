@@ -8,16 +8,10 @@
 using namespace cv;
 using namespace std;
 
-int capture(Mat img) {
-	for (int i = 1; i < 4; i++) {
-		putText(img,to_string(i), Point(100, 100), FONT_HERSHEY_DUPLEX, 5, Scalar(255, 255, 255), 1);
-	}
-	
-}
-
 void main() {
 
 	int result;
+	int i = 0 ;
 
 	
 	VideoCapture video(0);
@@ -34,11 +28,21 @@ void main() {
 
 		
 		
-		int key = waitKey(1); //
+		int key = waitKey(1);
 		if (key == 'b') {
-			capture(img);
+			i = 1;
 			cout << "Image captured" << endl;
 		}
+		if (i==51) i = 0;
+		else if (i!=0 && i<40) {
+			putText(img, to_string(i/10), Point(200, 350), FONT_HERSHEY_DUPLEX, 10, Scalar(255, 255, 255), 1);
+			i++;
+		}
+		else if (i >= 40) {
+			putText(img, "CHEESE", Point(125, 300), FONT_HERSHEY_DUPLEX, 3, Scalar(255, 255, 255), 1);
+			i++;
+		}
+
 
 		cout << faces.size() << endl;
 
