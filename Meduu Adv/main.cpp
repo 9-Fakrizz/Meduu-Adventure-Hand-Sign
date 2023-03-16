@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 	Text PlayerName(Window::renderer, "res/Fast.ttf", 50, "Player:", { 0,0,0,255 });
 
 	SDL_Event event;
-	int frame = 0, action = 0;
+	int frame = 0, action = 0,num = 0;
 	while (!window.isClosed()) {
 		
 		while (SDL_PollEvent(&event)) {
