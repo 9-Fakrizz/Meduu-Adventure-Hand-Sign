@@ -12,6 +12,8 @@ void pollEvents(Window& window, Rect& rect) {
 }
 
 int main(int argc, char** argv) {
+	string name;
+
 	Window window("Meduu Adventure", 1600, 1024);
 	Rect Menu(1600, 1024, 0, 0, "res/Menu.jpg");
 	Rect Start(1600, 1024, 0, 0, "res/Start.png");
@@ -19,9 +21,14 @@ int main(int argc, char** argv) {
 	Rect Player(400*3, 256*3, 0, 250, "res/Player.png");
 	Rect scene01(1600, 1024, 0, 0, "res/Forest_Scene.png");
 	Rect Slime(400*5, 256*5, 150, 0, "res/Blue_Slime.png");
+	Rect Box(400, 100, 1200, 0,190,190,190,255);
+	Rect Box2(400, 200, 400, 900, 190, 190, 190, 255);
 	
 	Text TextStart(Window::renderer,"res/ShortBaby.ttf",50,"Moving to first stage...",{0,0,0,255});
 	Text PressAny(Window::renderer, "res/ShortBaby.ttf", 50, "Press any button", { 0,0,0,255 });
+	Text MonName01(Window::renderer, "res/Fast.ttf", 50, "Slime:", { 0,0,0,255 });
+	Text PlayerName(Window::renderer, "res/Fast.ttf", 50, "Player:", { 0,0,0,255 });
+
 	SDL_Event event;
 	int frame = 0, action = 0;
 	while (!window.isClosed()) {
@@ -58,6 +65,10 @@ int main(int argc, char** argv) {
 				scene01.draw();
 				Player.draw();
 				Slime.draw();
+				Box.draw();
+				Box2.draw();
+				MonName01.display(1200, 25, Window::renderer);
+				PlayerName.display(400, 925, Window::renderer);
 			}
 			
 			window.clear();

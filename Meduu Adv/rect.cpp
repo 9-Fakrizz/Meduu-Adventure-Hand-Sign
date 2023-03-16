@@ -13,6 +13,7 @@ Rect::Rect(int w, int h, int x, int y, const string &image_path) :
 	if (!surface) {
 		cerr << "Failed\n";
 	}
+
 	_texture = SDL_CreateTextureFromSurface(Window::renderer, surface);
 	if (!_texture) {
 		cerr << "Failed\n";

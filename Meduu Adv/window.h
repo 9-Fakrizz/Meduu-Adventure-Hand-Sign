@@ -18,8 +18,11 @@ public:
 	inline bool isClosed() const { return _closed; }
 
 private:
+
 	bool init();
+
 private:
+
 	string _title;
 	int _width = 1600;
 	int _height = 1024;
@@ -29,5 +32,6 @@ private:
 	SDL_Window* _window = nullptr;
 
 public:
+
 	static SDL_Renderer* renderer;
 };

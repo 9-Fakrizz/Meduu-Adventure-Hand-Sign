@@ -8,8 +8,10 @@ Text::Text(SDL_Renderer* renderer,const string& font_path, int font_size, const 
 }
 
 void Text::display(int x, int y, SDL_Renderer* renderer) const {
+
 	_text_rect.x = x;
 	_text_rect.y = y;
+
 	SDL_RenderCopy(renderer, _text_texture, nullptr, &_text_rect);
 }
 
